@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 
 const Search = () => {
   const [value, setValue] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -17,6 +18,8 @@ const Search = () => {
           payload: data,
         });
         navigate("/items/search");
+      } else {
+        setError(data.error);
       }
     });
   };
@@ -24,10 +27,17 @@ const Search = () => {
   return (
     <section className="p-10 w-300 mt-24 m-auto shadow-lg">
       <form onSubmit={handleSearch}>
+        <div>
+          <h3 className="mb-2">{error}</h3>
+        </div>
+
         <input
           className="p-4 w-full border border-blue-300 border-solid"
           placeholder="Search by name ..."
-          onChange={(e) => setValue(e.target.value)}
+          onChange={(e) => {
+            setValue(e.target.value);
+            setError("");
+          }}
           required
         />
         <button

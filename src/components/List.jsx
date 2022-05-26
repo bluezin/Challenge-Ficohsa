@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Card from "./Card";
 import { useSelector } from "react-redux";
+import Card from "./Card";
 import styles from "../styles/list.css";
 
 const List = () => {

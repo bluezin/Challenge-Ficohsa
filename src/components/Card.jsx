@@ -11,7 +11,6 @@ const Card = ({ id, name, image, other_names, description, region, height }) => 
     >
       <div>
         <img
-          src={name}
           src={image}
           className="m-auto w-full h-72 rounded-t-xl"
         />

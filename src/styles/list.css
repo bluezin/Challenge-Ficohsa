@@ -1,0 +1,10 @@
+.list-container {
+  width: 60em;
+  margin: 30px auto;
+}
+
+@media screen and (max-width: 1080px) {
+  .list-container {
+    width: 90%;
+  }
+}

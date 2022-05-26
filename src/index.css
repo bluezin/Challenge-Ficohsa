@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo&family=Lobster&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Cairo", sans-serif;
+}
+
+.custom-font {
+  font-family: "Lobster", cursive;
+}
+
+.w-300 {
+  width: 800px;
+}
+
+@media screen and (max-width: 900px) {
+  .w-300 {
+    width: 80%;
+  }
+}

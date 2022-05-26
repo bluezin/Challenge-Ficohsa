@@ -1,5 +1,5 @@
 export const search = async (value = "") => {
-  const response = await fetch("http://localhost:3001/api/search", {
+  const response = await fetch("https://api-express-o.herokuapp.com/api/search", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -12,7 +12,7 @@ export const search = async (value = "") => {
 };
 
 export const getDogById = async (id = "") => {
-  const response = await fetch(`http://localhost:3001/api/items/${id}`, {
+  const response = await fetch(`https://api-express-o.herokuapp.com/api/items/${id}`, {
     headers: {
       "Content-Type": "application/json",
     },

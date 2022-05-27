@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Card from "./Card";
-import styles from "../styles/list.css";
+import "../styles/list.css";
 
 const List = () => {
   const [newResults, setNewResults] = useState([]);

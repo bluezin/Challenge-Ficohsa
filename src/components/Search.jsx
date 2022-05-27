@@ -5,12 +5,14 @@ import { useDispatch } from "react-redux";
 
 const Search = () => {
   const [value, setValue] = useState("");
-  const [error, setError] = useState("");
+  const [state, setState] = useState({ loading: false, error: "" });
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleSearch = (e) => {
     e.preventDefault();
+    setState({ loading: true, error: "" });
+    
     search(value).then((data) => {
       if (!data.error) {
         dispatch({
@@ -18,8 +20,9 @@ const Search = () => {
           payload: data,
         });
         navigate("/items/search");
+        setState({ loading: false, error: "" });
       } else {
-        setError(data.error);
+        setState({ loading: false, error: data.error });
       }
     });
   };
@@ -28,7 +31,7 @@ const Search = () => {
     <section className="p-10 w-300 mt-24 m-auto shadow-lg">
       <form onSubmit={handleSearch}>
         <div>
-          <h3 className="mb-2">{error}</h3>
+          <h3 className="mb-2">{state.error}</h3>
         </div>
 
         <input
@@ -36,7 +39,7 @@ const Search = () => {
           placeholder="Search by name ..."
           onChange={(e) => {
             setValue(e.target.value);
-            setError("");
+            setState({ ...state, error: "" });
           }}
           required
         />
@@ -44,7 +47,7 @@ const Search = () => {
           type="submit"
           className="p-2 w-full mt-4 rounded-lg bg-blue-300 text-white text-xl"
         >
-          Search
+          {state.loading ? "Loading ..." : "Search"}
         </button>
       </form>
     </section>

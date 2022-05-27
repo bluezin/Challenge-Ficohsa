@@ -15,7 +15,7 @@ const List = () => {
   return (
     <section className="list-container">
       <p className="text-2xl mt-10 mb-10 font-bold">
-        List of the first 4 results :
+        List of the first {newResults.length} results :
       </p>
       {newResults.length === 0 && (
         <p className="text-center mt-10">No se encontraron resultados.</p>
